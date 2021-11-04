@@ -49,10 +49,10 @@ const handleSend = (req, res) => {
                     // Step 3
                     transporter.sendMail(mailOptions, (err, data) => {
                         if (err) {
-                            res.sendFile(path.join(__dirname, '/public/error500.html'));
+                            // res.sendFile(path.join(__dirname, '/public/error500.html'));
                             return log('Error occurs');
                         }
-                        res.sendFile(path.join(__dirname, '/public/thank-you.html'));
+                        // res.sendFile(path.join(__dirname, '/public/thank-you.html'));
                         return log('Email sent!!!');
                     });
                 }
