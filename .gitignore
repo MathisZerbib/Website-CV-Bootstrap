@@ -1,2 +1,7 @@
 
 bootstrap-5.0.2-examples
+node_modules
+.env
+package-lock.json
+thank-you.html
+error500.html

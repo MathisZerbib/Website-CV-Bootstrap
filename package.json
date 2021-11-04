@@ -1,0 +1,26 @@
+{
+  "name": "cvbootstrap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MathisZerbib/Website-CV-Bootstrap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MathisZerbib/Website-CV-Bootstrap/issues"
+  },
+  "homepage": "https://github.com/MathisZerbib/Website-CV-Bootstrap#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "isomorphic-fetch": "^3.0.0",
+    "nodemailer": "^6.7.0"
+  }
+}
