@@ -121,11 +121,11 @@
                               data-error="Please, leave us a message."></textarea> </div>
                         </div>
 
-                        <div class="col-md-12"> <input id="submit" class="g-recaptcha" 
-                          data-sitekey="6LdwuxQdAAAAAGOISHZnRY5ZU7RBetbH6a1ObmVm" 
-                          data-callback='onSubmit' 
-                          data-action='submit' type="submit" class="btn btn-primary btn-send pt-2 btn-block"
-                            value="Send Message"> </div>
+                        <div class="col-md-12" class="g-recaptcha"
+                          data-sitekey="6LdwuxQdAAAAAGOISHZnRY5ZU7RBetbH6a1ObmVm" data-callback='onSubmit'
+                          data-action='submit'> <button  id="submit" type="submit"
+                            class="btn btn-primary btn-send pt-2 btn-block">Send Message </button>
+                        </div>
                       </div>
                     </div>
                   </form>
@@ -140,48 +140,56 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
   integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-  
+
 <script src="https://www.google.com/recaptcha/api.js?render=6LdwuxQdAAAAAGOISHZnRY5ZU7RBetbH6a1ObmVm"></script>
 <script async defer>
 
-function onSubmit(token) {
-     document.getElementById("demo-form").submit();
-   }
+  function onSubmit(token) {
+    document.getElementById("contact-form").submit();
+  }
 
-    function handleClick(token) {
-        return function() {
-    var name = document.querySelector('#form_lastname').value;
-    var surname =  document.querySelector('#form_name').value;
-    var email = document.querySelector('#form_email').value
-    var to ='mathis.zerbib@gmail.com';
-    var need = document.querySelector('#form_need').value
-    var message = document.querySelector('#form_message').value
-            var data = {
-                name: name,
-                surname: surname,
-                email: email,
-                need: need,
-                message: message,
-                token: token
-            };
-
-            fetch('send', {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                method: 'post',
-                body: JSON.stringify(data)
-            })
-                .then(response => response.text());
-        }
+  function handleClick(token) {
+    return function () {
+      var name = document.querySelector('#form_lastname').value;
+      var surname = document.querySelector('#form_name').value;
+      var email = document.querySelector('#form_email').value
+      var to = 'mathis.zerbib@gmail.com';
+      var need = document.querySelector('#form_need').value
+      var message = document.querySelector('#form_message').value
+      var data = {
+        name: name,
+        surname: surname,
+        email: email,
+        need: need,
+        message: message,
+        token: token
+      };
+      var headers = Object.entries(data).filter(([k, v], i) => !!v);
+      var lenght = Object.keys(headers).length;
+      if (lenght === 6) {
+        document.getElementById('submit').disabled = true;
+        fetch('send', {
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          method: 'post',
+          body: JSON.stringify(data)
+        })
+          .then(response => 
+          {response.text()
+          window.location.replace('thank-you.html');
+          });
+      }
     }
+  }
 
-    grecaptcha.ready(function() {
-        grecaptcha.execute('6LdwuxQdAAAAAGOISHZnRY5ZU7RBetbH6a1ObmVm', {action: 'demo'})
-            .then(function(token) {
-                document.querySelector('#submit').addEventListener('click', handleClick(token));
-            });
-    });
+  grecaptcha.ready(function () {
+    grecaptcha.execute('6LdwuxQdAAAAAGOISHZnRY5ZU7RBetbH6a1ObmVm')
+      .then(function (token) {
+        document.querySelector('#submit').addEventListener('click', handleClick(token));
+      });
+  });
 </script>
+
 </html>

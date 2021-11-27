@@ -119,23 +119,24 @@
       </svg>
     </a> -->
 
-    <div class="container col-xxl-8 px-4 py-5 mt-5">
-      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-        <div class="col-10 col-sm-8 col-lg-6">
 
-          <h1 class="display-5 fw-bold lh-1 mb-3">Freelance Minded</h1>
-          <p id="freelance" class="lead"> I approach all my projects, regardless of the project size, with a kick-off
-            discovery
-            session to understand my client’s vision, the business objectives and what the user data is indicating.
-            I’ve trained myself to make a quick usability test the moment I open a new website or an app, so this
-            comes almost for free during our first meeting.</p>
-        </div>
-        <div class="col-lg-6">
-          <img src="assets/img/freelancer.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700"
-            height="500" loading="lazy">
-        </div>
-      </div>
+    
+    <div class="container col-xxl-8 px-4 py-3 my-5 text-center overlay-opacity-1">
+      <img id="build" src="assets/img/freelancer.png" alt="" class="d-block mx-lg-auto img-fluid my-5"
+      alt="Bootstrap Themes" loading="lazy">
+      <h1 class="display-5 fw-bold">Freelance Minded</h1>
+      <div class="col-lg-6 mx-auto">
+        <h1 class="display-5 fw-bold lh-1 mb-3"></h1>
+        <p id="freelance" class="lead"> I approach all my projects, regardless of the project size, with a kick-off
+          discovery
+          session to understand my client’s vision, the business objectives and what the user data is indicating.
+          I’ve trained myself to make a quick usability test the moment I open a new website or an app, so this
+          comes almost for free during our first meeting.</p>
+         
+
     </div>
+
+
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
@@ -144,12 +145,20 @@
 
     <script type="text/javascript">
       $(window).scroll(function() {
+
         var scrollTop = $(this).scrollTop();
       
         $('.overlay-opacity').css({
           opacity: function() {
             var elementHeight = $(this).height();
             return 1 - (elementHeight - scrollTop) / elementHeight;
+          }
+        });
+
+        $('.overlay-opacity-1').css({
+          opacity: function() {
+            var elementHeight = $(this).height();
+            return 1 - (elementHeight * 1.5 - scrollTop) / elementHeight;
           }
         });
       });
