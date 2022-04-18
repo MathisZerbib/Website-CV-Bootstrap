@@ -1,5 +1,13 @@
     /* GLOBAL STYLES
 -------------------------------------------------- */
+    
+    @font-face {
+        font-family: 'NuMono Free';
+        src: url('../fonts/NuMonoFreeRegular.woff2') format('woff2'), url('../fonts/NuMonoFreeRegular.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
     /* Padding below the footer and lighter body text */
     
     body {
@@ -18,12 +26,19 @@
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .logoName {
+        font-family: 'NuMono Free';
+        font-weight: normal;
+        font-style: normal;
     }
     
     .glassMorphism {
         background: rgba(255, 255, 255, 0.2);
-        border-radius: 16px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
