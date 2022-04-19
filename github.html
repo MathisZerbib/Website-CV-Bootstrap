@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
     <style>
         body {
             box-shadow: none !important;
@@ -86,21 +89,8 @@
 
         <h1 class="mt-5">Formation OpenClassroom</h1>
 
-        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5 h-50 gallery">
-            <!-- <a href="" target="_blank">
-                <div class="">
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5 gallery">
 
-                    <div class="card card-cover h-50 overflow-hidden text-white  rounded-5 shadow-lg" style="background-image: url('https://www.tice-education.fr/images/stories/img/github-1280x720.jpg');">
-
-                    </div>
-
-                    <div class="card-body">
-                        <h3 class="text-bold" role="button"></h3>
-                        <p></p>
-                    </div>
-
-                </div>
-            </a> -->
         </div>
     </main>
 
@@ -111,28 +101,50 @@
             let galleryDom = document.querySelector('.gallery')
             let cardDom = document.createElement('article');
             let cardImage = document.createElement('img');
-            let cardLink = document.createElement('a');
+            let cardLinkPage = document.createElement('a');
+            let cardLinkCode = document.createElement('a');
+
             let titleDom = document.createElement('h3');
             let descDom = document.createElement('p');
+            let eyeIcon = document.createElement('i')
+            let codeIcon = document.createElement('i');
 
-            cardLink.setAttribute('target', '_blank')
+
+            let flexDiv = document.createElement('div');
+            cardLinkPage.setAttribute('target', '_blank')
+            cardLinkCode.setAttribute('target', '_blank')
+
             cardImage.src = 'https://www.padok.fr/hubfs/Imported_Blog_Media/6efb9bc5d143-article-190612-github-body-text.jpg'
             cardImage.className = 'img-fluid';
-            cardLink.className = 'text-decoration-none';
-            titleDom.className = 'text-white'
-            descDom.className = 'text-white'
+            cardLinkPage.className = 'text-decoration-none';
+            cardLinkCode.className = 'text-decoration-none';
+
+            titleDom.className = 'text-white text-wrap';
+            descDom.className = 'text-white text-wrap';
+            eyeIcon.className = 'fa-solid fa-eye text-white';
+            codeIcon.className = 'fa-solid fa-code text-white';
+            cardDom.className = 'col zoom p-2 my-2 glassMorphismCard';
+
+            flexDiv.className = 'd-flex justify-content-around'
+
             gitArray.forEach(element => {
 
                 console.log("Element", element);
-                cardDom.className = 'col zoom h-100 p-2 my-2 glassMorphismCard';
-                cardLink.href = element.url;
+                cardLinkPage.href = element.url;
+                cardLinkCode.href = element.repo;
                 titleDom.innerText = element.title;
                 descDom.innerText = element.desc;
-                galleryDom.appendChild(cardLink);
-                cardLink.appendChild(cardDom);
+
+                galleryDom.appendChild(cardDom);
                 cardDom.appendChild(cardImage);
                 cardDom.appendChild(titleDom);
                 cardDom.append(descDom)
+                cardDom.append(flexDiv)
+                flexDiv.append(cardLinkCode)
+                flexDiv.append(cardLinkPage)
+                cardLinkPage.appendChild(eyeIcon)
+                cardLinkCode.appendChild(codeIcon)
+
 
             });
         }
@@ -154,13 +166,23 @@
                         let title = element.name
                         let desc = element.description
                         let url = element.git_url
+
+
                         url = url.replace('git', 'https')
+                        gitObject['repo'] = url
+
                         url = url.replace('github.com', 'mathiszerbib.github.io');
                         url = url.substring(0, url.length - 4);
                         url = url.replace('/MathisZerbib', '')
+
+                        title = title.replace('Zerbib_Mathis_', '')
                         gitObject['title'] = title;
                         gitObject['url'] = url;
                         gitObject['desc'] = desc;
+
+                        if (desc == null) {
+                            gitObject['desc'] = 'OpenClassRoom '
+                        }
                         gitArray.push(gitObject)
                         pushDom(gitArray);
                         console.log(element)
