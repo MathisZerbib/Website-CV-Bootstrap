@@ -23,17 +23,10 @@ formbutton("create", {
     ],
     styles: {
         title: {
-            backgroundColor: "gray"
+            backgroundColor: "#F0453A"
         },
         button: {
-            backgroundColor: "gray"
+            backgroundColor: "#F0453A"
         }
     }
 });
-
-window.onload = function() {
-    var el = document.getElementById('g-recaptcha-response');
-    if (el) {
-        el.setAttribute('required', 'required');
-    }
-}
