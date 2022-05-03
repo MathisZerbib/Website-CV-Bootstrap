@@ -351,6 +351,7 @@
         align-content: center;
         align-items: center;
         justify-content: space-between;
+        z-index: 9999;
     }
     
     .logoName {
@@ -375,6 +376,7 @@
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 25px;
         max-width: 300px;
+        z-index: 9998;
     }
     
     .img-fluid {
