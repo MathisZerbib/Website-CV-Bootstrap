@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: whitesmoke;
+        }
+        /* Main Loader */
+        
+        .loader {
+            position: relative;
+            width: 180px;
+            height: 180px;
+        }
+        
+        .loader::before,
+        .loader::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+        }
+        /* Loader Blue Circle */
+        
+        .loader::before {
+            background: linear-gradient(to left, #2196f3, #f44336);
+            animation: animate 2s ease-in-out infinite;
+        }
+        /* Loader Glassmorphism */
+        
+        .loader::after {
+            background: rgba(56, 109, 241, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: animate 2s ease-in-out infinite;
+            z-index: 1;
+            animation-delay: -1s;
+        }
+        /* Animation */
+        
+        @keyframes animate {
+            0%,
+            100% {
+                transform: translateX(-80px);
+            }
+            50% {
+                transform: translateX(80px);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="loader"></div>
+
+</body>
+
+</html>
