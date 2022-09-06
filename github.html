@@ -88,7 +88,7 @@
                     <a class="nav-link" href="index.html">Home</a>
                     <a class="nav-link" href="portfolio.html">Portfolio</a>
                     <a class="nav-link active" aria-current="page" href="github.html">Github</a>
-                    <a class="nav-link" href="./assets/pdf/Mathis_Zerbib_CV_2021.pdf" download="Mathis_Zerbib_CV_2022.pdf">CV <i class="fa-solid fa-download"></i></a>
+                    <a class="nav-link" href="./assets/pdf/Mathis_Zerbib_CV_2022.pdf" download="Mathis_Zerbib_CV_2022.pdf">CV <i class="fa-solid fa-download"></i></a>
                 </nav>
             </div>
         </header>
@@ -169,9 +169,9 @@
 
             flexDiv.className = 'd-flex justify-content-around'
 
-            gitArray.forEach(element => {
 
-                console.log("Element", element);
+
+            gitArray.map(element => {
                 cardLinkPage.href = element.url;
                 cardLinkCode.href = element.repo;
                 titleDom.innerText = element.title;
@@ -190,55 +190,66 @@
 
             });
         }
-        async function func() {
+        async function getGit() {
             const username = 'MathisZerbib'
             const url = `https://api.github.com/users/${username}/repos?page=2`
             const response = await fetch(url);
             const result = await response.json();
+
             // Returns an array of item names
             //if (result.git_url.includes('Zerbib_Mathis_'))
             //git://github.com/MathisZerbib/Zerbib_Mathis_2_12022022.git
             let gitArray = [];
             let gitObject = {}
 
-
-            result.forEach(element => {
-                    if (element.git_url.toString().includes('2022')) {
+            result.map(element => {
+                    if (element.git_url.toString().includes('22')) {
                         // title.innerText = element.git_url
                         let title = element.name
                         let desc = element.description
                         let url = element.git_url
+                        let created_at = element.created_at
 
-
+                        // Adding url & repo
                         url = url.replace('git', 'https')
                         gitObject['repo'] = url
-
                         url = url.replace('github.com', 'mathiszerbib.github.io');
                         url = url.substring(0, url.length - 4);
                         url = url.replace('/MathisZerbib', '')
+                        gitObject['url'] = url;
 
+                        // Adding title
                         title = title.replace('Zerbib_Mathis_', '')
                         gitObject['title'] = title;
-                        gitObject['url'] = url;
-                        gitObject['desc'] = desc;
 
+                        //Adding description
+                        gitObject['desc'] = desc;
                         if (desc == null) {
                             gitObject['desc'] = 'OpenClassRoom '
                         }
+                        // Adding created at
+                        gitObject['created_at'] = created_at;
+
+                        
                         gitArray.push(gitObject)
+                        gitArray.sort((a,b)=>{
+    return new Date(b.created_at) - new Date(a.created_at);
+})
                         pushDom(gitArray);
-                        console.log(element)
                     }
 
                 }
-
             );
+
+            
+                    console.log('result :', result)
+                    console.log('gitArray :', gitArray)
 
 
 
         }
 
-        func()
+        getGit()
     </script>
     <script>
         var Objects = anime({
