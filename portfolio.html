@@ -13,6 +13,12 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png">
     <link rel="manifest" href="./assets/img/site.webmanifest">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css" rel="stylesheet" />
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -25,59 +31,17 @@
     <!-- CDN FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
-
-    <style>
-        body {
-            box-shadow: none !important;
-            -ms-overflow-style: none;
-            /* for Internet Explorer, Edge */
-            scrollbar-width: none;
-            /* for Firefox */
-            overflow-y: scroll;
-        }
-        
-        body::-webkit-scrollbar {
-            display: none;
-            /* for Chrome, Safari, and Opera */
-        }
-        
-        .zoom {
-            transition: transform .1s;
-            /* Animation */
-            margin: 1%;
-        }
-        
-        .zoom:hover {
-            transform: scale(1.1);
-        }
-        
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-        
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
-
 
     <!-- Custom styles for this template -->
+    <link href="./assets/css/portfolio.css" rel="stylesheet">
+
     <link href="./assets/css/style.css" rel="stylesheet">
 
 </head>
 
-<body class="h-100 text-center text-white px-5">
+<body class="text-center text-white">
 
-    <div class="container d-flex w-100 mx-auto flex-column">
-        <header>
-            <div class="fixed-top glassMorphism p-3">
+            <div class="top-nav glassMorphism p-3">
                 <a class="text-decoration-none" href="index.html">
                     <h3 class="float-md-start mb-0 mx-5 text-white logoName">Mathis Zerbib</h3>
                 </a>
@@ -86,17 +50,94 @@
                     <a class="nav-link active" aria-current="page" href="portfolio.html">Portfolio</a>
                     <a class="nav-link" href="github.html">Github</a>
                     <a class="nav-link" href="./assets/pdf/Mathis_Zerbib_CV_2022.pdf#toolbar=0"
-target="_blank">CV <i class="fa-solid fa-download"></i></a>
+                        target="_blank">CV <i class="fa-solid fa-download"></i></a>
                 </nav>
             </div>
-        </header>
-    </div>
 
-    <main class="p-3 m-5 h-100">
+    <main class="h-100 w-100 my-5 portfolio__main">
 
-        <h1 class="mt-3">Portfolio</h1>
+        <h1 class="pb-5">Portfolio</h1>
 
-        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 justify-content-around g-4 py-5 h-50">
+        <div class="blog-slider">
+            <div class="blog-slider__wrp swiper-wrapper">
+
+                <!-- ZYNEAS -->
+              <div class="blog-slider__item swiper-slide">
+                <div class="blog-slider__img">
+                  
+                  <img src="assets/img/Zyneas.png" alt="">
+                  <!-- <embed src="https://www.zyneas.com" style="width:500px; height: 300px;"> -->
+
+                </div>
+                <div class="blog-slider__content">
+                  <span class="blog-slider__code">26 December 2019</span>
+                  <div class="blog-slider__title">Zyneas</div>
+                  <div class="blog-slider__text">Zyneas is an ESN from Paris. I've made the website from scratch and also worked on the hosting with Google cloud platform. </div>
+                    <a href="https://www.zyneas.com" class="blog-slider__button">PREVIEW</a>
+
+
+                </div>
+              </div>
+
+              <!-- PriceComparator -->
+              <div class="blog-slider__item swiper-slide">
+                <div class="blog-slider__img">
+                  <img src="assets/img/PriceComparator.png" alt="">
+                </div>
+                <div class="blog-slider__content">
+                  <span class="blog-slider__code">26 December 2019</span>
+                  <div class="blog-slider__title">PriceComparator</div>
+                  <div class="blog-slider__text">It is a tool for monitoring pricing, which allows you to view your direct and indirect competition on a dashboard. This website has been refactored by them recently</div>
+                  <a href="https://pricecomparator.pro" class="blog-slider__button">PREVIEW</a>
+                </div>
+              </div>
+              
+              <!-- Castornaute -->
+              <div class="blog-slider__item swiper-slide">
+                <div class="blog-slider__img">
+                  <img src="assets/img/Castornaute.png" alt="">
+                </div>
+                <div class="blog-slider__content">
+                  <span class="blog-slider__code">26 December 2019</span>
+                  <div class="blog-slider__title">Castornaute</div>
+                  <div class="blog-slider__text">This is a web agency that specializes in increasing a client's visibility on the internet and social networks. I developed the website and several other WordPress projects for other clients within the agency.</div>
+                  <a href="https://castornaute.com" class="blog-slider__button">PREVIEW</a>
+                </div>
+              </div>
+
+              <!-- Globecast -->
+              <div class="blog-slider__item swiper-slide">
+                <div class="blog-slider__img">
+                  <img src="assets/img/Globecast_Logo_Colour_Black_CMYK.jpg" alt="">
+                </div>
+                <div class="blog-slider__content">
+                  <span class="blog-slider__code">26 December 2019</span>
+                  <div class="blog-slider__title">Globecast (Orange)</div>
+                  <div class="blog-slider__text">I have collaborated on a large project within a CDI at Dcube with a 7-person team. I was in charge of the frontend and the backend, and the project was related to satellite broadcasting and distribution management.</div>
+                  <a href="#" class="blog-slider__button">READ MORE</a>
+                </div>
+              </div>
+
+              <!-- Soland -->
+              <div class="blog-slider__item swiper-slide">
+                <div class="blog-slider__img">
+                  <img src="assets/img/solandArt.png" alt="">
+                </div>
+                <div class="blog-slider__content">
+                  <span class="blog-slider__code">26 December 2019</span>
+                  <div class="blog-slider__title">Hackathon Solana Project</div>
+                  <div class="blog-slider__text">I developed the front end of a web3 Gallery using solana Blockchain with my team of two people. I used HTML and Javascript with Bootstrap and web3Js. This project has not won the competition !</div>
+                  <a href="" class="blog-slider__button">READ MORE</a>
+                </div>
+              </div>
+
+
+              
+            </div>
+            <div class="blog-slider__pagination"></div>
+          </div>
+
+        <!-- <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 justify-content-around g-4 py-5 h-50">
 
             <div class="
 col zoom h-100 p-2 my-2 glassMorphismCard">
@@ -134,7 +175,7 @@ col zoom h-100 p-2 my-2 glassMorphismCard">
                 </a>
                 <div>
                     <h3 class="text-truncate text-bold" role="button"> PriceComparator.pro</h3>
-                    <p class="description">It's a price monitoring tool, it allows using a dashboard to visualize its direct and indirect competition</p>
+                    <p class="description">It is a tool for monitoring pricing, which allows you to view your direct and indirect competition on a dashboard.</p>
                 </div>
             </div>
 
@@ -148,7 +189,7 @@ col zoom h-100 p-2 my-2 glassMorphismCard">
                 </a>
                 <div>
                     <h3 class="text-truncate text-bold" role="button"> Castornaute.com</h3>
-                    <p class="description">A web agency which aims to increase your visibility on the internet and social networks</p>
+                    <p class="description"This is a web agency that specializes in increasing a client's visibility on the internet and social networks. I developed the website and several other WordPress projects for other clients within the agency.</p>
                 </div>
             </div>
 
@@ -164,7 +205,7 @@ col zoom h-100 p-2 my-2 glassMorphismCard">
                     <p class="description">Satellite broadcasting and distribution management company, video OTT and VOD.</p>
                 </div>
             </div>
-        </div>
+        </div> -->
     </main>
 
     <!-- <div id="preloader">
@@ -191,11 +232,44 @@ col zoom h-100 p-2 my-2 glassMorphismCard">
     </svg>
         </div>
     </div> -->
+
+
+
+
+
+
+
+
+
+
+
     <div class="fixed-bottom wave1"></div>
     <div class="fixed-bottom wave3"></div>
     <div class="fixed-bottom wave2"></div>
 
-
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                var swiper = new Swiper('.blog-slider', {
+                    spaceBetween: 30,
+                    effect: 'fade',
+                    loop: true,
+                    mousewheel: {
+                    invert: false,
+                    },
+                    autoplay: {
+                    delay: 2000,
+                    },
+                    // autoHeight: true,
+                    pagination: {
+                    el: '.blog-slider__pagination',
+                    clickable: true,
+                    }
+                });
+            });
+        });
+        </script>
+        
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 
     <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
@@ -230,6 +304,8 @@ col zoom h-100 p-2 my-2 glassMorphismCard">
             loop: true
         });
     </script>
+
+
 </body>
 
 
