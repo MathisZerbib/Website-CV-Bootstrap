@@ -20,7 +20,7 @@
         background: transparent;
         margin-top: 75px;
     } */
-    
+/*     
     #preloader {
         background: #353353;
         height: auto;
@@ -233,7 +233,7 @@
         100% {
             transform: translate(32px, -8px) scale(0);
         }
-    }
+    } */
     
     .wave1 {
         height: 100px;
@@ -345,17 +345,6 @@
       /* display: flex; */
     }
 
-
-
-    /* body {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-        background: #2196f3;
-        /* fallback for old browsers */
-        /* background: -webkit-linear-gradient(to left, #2196f3, #f44336); */
-        /* Chrome 10-25, Safari 5.1-6 */
-        /* background: linear-gradient(to left, #2196f3, #f44336); */
-    /* } */
     .top-nav {
         /* From https://css.glass */
         height: 80px;
