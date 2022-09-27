@@ -23,10 +23,10 @@ formbutton("create", {
     ],
     styles: {
         title: {
-            backgroundColor: "#F0453A"
+            backgroundColor: "#0D3895"
         },
         button: {
-            backgroundColor: "#F0453A"
+            backgroundColor: "#0D3895"
         }
     }
 });
