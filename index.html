@@ -116,7 +116,7 @@
 
 
 
-        <div class="container col-xxl-8 py-5 my-5 overlay-opacity">
+        <div class="container col-xxl-8 py-5 my-5 overlay-opacity-1">
             <div class="row flex-lg-row-reverse align-items-center py-5 my-5">
                 <div class="col-10 col-sm-8 col-lg-6">
                     <img src="assets/img/freelancer.png" class="d-block py-5 mx-lg-auto img-fluid" alt="fullstackImage" width="700" height="500" loading="lazy">
@@ -208,19 +208,19 @@
     <script type="text/javascript">
         $(window).scroll(function() {
 
-            var scrollTop = $(this).scrollTop();
+            let scrollTop = $(this).scrollTop();
 
             $('.overlay-opacity').css({
                 opacity: function() {
-                    var elementHeight = $(this).height();
-                    return 1 - (elementHeight - scrollTop) / elementHeight;
+                    let elementHeight = $(this).height();
+                    return 1 - (elementHeight * 1.5 - scrollTop) / elementHeight;
                 }
             });
 
             $('.overlay-opacity-1').css({
                 opacity: function() {
-                    var elementHeight = $(this).height();
-                    return 1 - (elementHeight * 1.5 - scrollTop) / elementHeight;
+                    let elementHeight = $(this).height();
+                    return 1 - (elementHeight * 2.5 - scrollTop) / elementHeight;
                 }
             });
         });
