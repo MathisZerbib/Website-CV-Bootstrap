@@ -1,0 +1,117 @@
+<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4  justify-content-around p-5 gallery">
+
+</div>
+
+<script type="text/javascript">
+    function pushDom(gitArray) {
+        let galleryDom = document.querySelector('.gallery')
+        let cardDom = document.createElement('article');
+        let cardImage = document.createElement('img');
+        let cardLinkPage = document.createElement('a');
+        let cardLinkCode = document.createElement('a');
+
+        let titleDom = document.createElement('h3');
+        let descDom = document.createElement('p');
+        let eyeIcon = document.createElement('i')
+        let codeIcon = document.createElement('i');
+
+
+        let flexDiv = document.createElement('div');
+        cardLinkPage.setAttribute('target', '_blank')
+        cardLinkCode.setAttribute('target', '_blank')
+
+        cardImage.src = 'https://www.padok.fr/hubfs/Imported_Blog_Media/6efb9bc5d143-article-190612-github-body-text.jpg'
+        cardImage.className = 'img-fluid';
+        cardLinkPage.className = 'text-decoration-none';
+        cardLinkCode.className = 'text-decoration-none';
+
+        titleDom.className = 'text-white text-wrap';
+        descDom.className = 'text-white text-wrap';
+        eyeIcon.className = 'fa-solid fa-eye text-white';
+        codeIcon.className = 'fa-solid fa-code text-white';
+        cardDom.className = 'col zoom p-2 my-2 glassMorphismCard';
+
+        flexDiv.className = 'd-flex justify-content-around'
+
+
+
+        gitArray.map(element => {
+            cardLinkPage.href = element.url;
+            cardLinkCode.href = element.repo;
+            titleDom.innerText = element.title;
+            descDom.innerText = element.desc;
+
+            galleryDom.appendChild(cardDom);
+            cardDom.appendChild(cardImage);
+            cardDom.appendChild(titleDom);
+            cardDom.append(descDom)
+            cardDom.append(flexDiv)
+            flexDiv.append(cardLinkCode)
+            flexDiv.append(cardLinkPage)
+            cardLinkPage.appendChild(eyeIcon)
+            cardLinkCode.appendChild(codeIcon)
+
+
+        });
+    }
+    async function getGit() {
+        const username = 'MathisZerbib'
+        const url = `https://api.github.com/users/${username}/repos?page=2`
+        const response = await fetch(url);
+        const result = await response.json();
+
+        // Returns an array of item names
+        //if (result.git_url.includes('Zerbib_Mathis_'))
+        //git://github.com/MathisZerbib/Zerbib_Mathis_2_12022022.git
+        let gitArray = [];
+        let gitObject = {}
+
+        result.map(element => {
+            if (element.git_url.toString().includes('22')) {
+                // title.innerText = element.git_url
+                let title = element.name
+                let desc = element.description
+                let url = element.git_url
+                let created_at = element.created_at
+
+                // Adding url & repo
+                url = url.replace('git', 'https')
+                gitObject['repo'] = url
+                url = url.replace('github.com', 'mathiszerbib.github.io');
+                url = url.substring(0, url.length - 4);
+                url = url.replace('/MathisZerbib', '')
+                gitObject['url'] = url;
+
+                // Adding title
+                title = title.replace('Zerbib_Mathis_', '')
+                gitObject['title'] = title;
+
+                //Adding description
+                gitObject['desc'] = desc;
+                if (desc == null) {
+                    gitObject['desc'] = 'OpenClassRoom '
+                }
+                // Adding created at
+                gitObject['created_at'] = created_at;
+
+
+                gitArray.push(gitObject)
+                gitArray.sort((a, b) => {
+                    return new Date(b.created_at) - new Date(a.created_at);
+                })
+                pushDom(gitArray);
+            }
+
+        }
+        );
+
+
+        console.log('result :', result)
+        console.log('gitArray :', gitArray)
+
+
+
+    }
+
+    getGit()
+</script>
