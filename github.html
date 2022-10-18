@@ -37,13 +37,17 @@
 
 
     <!-- Custom styles for this template -->
-    <!-- <link href="./assets/css/portfolio.css" rel="stylesheet"> -->
     <link href="./assets/css/loader.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="./assets/css/style.css" rel="stylesheet">
 
 </head>
+<style>
+    .user-card .header {
+        background-image: url("https://raw.githubusercontent.com/MathisZerbib/MathisZerbib/main/fullstackdeveloper.gif") !important;
+    }
+</style>
 
 <body class="h-100 text-center text-white">
     <div class="d-flex w-100 mx-auto flex-column">
@@ -69,10 +73,10 @@
 
     <main class="p-3 m-5 h-100">
 
-        <h1 class="pb-5">Formation ReactJs OpenClassroom WIP</h1>
+        <h1 class="pb-5">Mon profil github</h1>
 
 
-        <div class="github-card" data-github="mathisZerbib" data-width="" data-height="400" data-theme="medium">
+        <div class="github-card" data-github="mathisZerbib" data-width="250" data-height="400" data-theme="medium">
         </div>
     </main>
     <div class="fixed-bottom wave1"></div>
@@ -81,7 +85,10 @@
     <script>
         $(window).on('load', function () {
             $('.loader').hide();
-        }) 
+        })
+        
+
+
     </script>
 
     <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
@@ -119,6 +126,7 @@
             direction: 'alternate',
             loop: true
         });
+
     </script>
 </body>
 
