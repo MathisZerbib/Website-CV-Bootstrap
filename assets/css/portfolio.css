@@ -53,6 +53,9 @@
       opacity: 1;
       transition-delay: 0.3s;
     }
+.blog-slider__content {
+    text-shadow: none;
+}
     .blog-slider__item.swiper-slide-active .blog-slider__content > * {
       opacity: 1;
       transform: none;
